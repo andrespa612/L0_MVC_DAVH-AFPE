@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using L0_MVC_DAVH_AFPE.Models.Data;
 
 namespace L0_MVC_DAVH_AFPE.Controllers
 {
@@ -12,19 +13,21 @@ namespace L0_MVC_DAVH_AFPE.Controllers
         // GET: StudentsController
         public ActionResult Index()
         {
-            List<Models.ClientsModel> StudentsList = new List<Models.ClientsModel>();
-            return View(StudentsList);
+            
+            return View(Singleton.Instance.ClientsList);
         }
 
         // GET: StudentsController/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(string Name)
         {
-            return View();
+            var detailsClient = Singleton.Instance.ClientsList.Find(x => x.Name == Name);
+            return View(detailsClient);
         }
 
         // GET: StudentsController/Create
         public ActionResult Create()
         {
+            
             return View();
         }
 
@@ -35,6 +38,14 @@ namespace L0_MVC_DAVH_AFPE.Controllers
         {
             try
             {
+                var newClient = new Models.ClientsModel
+                {
+                    Name = collection["Name"],
+                    Lastname = collection["LastName"],
+                    PhoneNumber = collection["PhoneNumber"],
+                    Description = collection["Description"]
+                };
+                Singleton.Instance.ClientsList.Add(newClient);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -44,9 +55,10 @@ namespace L0_MVC_DAVH_AFPE.Controllers
         }
 
         // GET: StudentsController/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(string Name)
         {
-            return View();
+            var editClient = Singleton.Instance.ClientsList.Find(x => x.Name == Name);
+            return View(editClient);
         }
 
         // POST: StudentsController/Edit/5
