@@ -12,7 +12,7 @@ namespace L0_MVC_DAVH_AFPE.Controllers
         // GET: StudentsController
         public ActionResult Index()
         {
-            List<Models.> StudentsList = new List<Models.Student>();
+            List<Models.ClientsModel> StudentsList = new List<Models.ClientsModel>();
             return View(StudentsList);
         }
 
