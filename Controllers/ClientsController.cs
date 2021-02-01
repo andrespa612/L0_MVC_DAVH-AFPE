@@ -64,11 +64,19 @@ namespace L0_MVC_DAVH_AFPE.Controllers
         // POST: StudentsController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(string name, IFormCollection collection)
+        public ActionResult Edit(string Name, IFormCollection collection)
         {
             try
             {
-                
+                int index = Singleton.Instance.ClientsList.IndexOf(Singleton.Instance.ClientsList.Find(x => x.Name == Name));
+                var ClientEdited = new Models.ClientsModel
+                {
+                    Name = collection["Name"],
+                    Lastname = collection["LastName"],
+                    PhoneNumber = collection["PhoneNumber"],
+                    Description = collection["Description"]
+                };
+                Singleton.Instance.ClientsList[index] = ClientEdited;
                 return RedirectToAction(nameof(Index));
             }
             catch
