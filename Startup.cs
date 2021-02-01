@@ -50,7 +50,7 @@ namespace L0_MVC_DAVH_AFPE
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Clients}/{action=Index}/{id?}");
             });
         }
     }
