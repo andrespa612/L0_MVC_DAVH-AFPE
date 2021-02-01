@@ -40,6 +40,7 @@ namespace L0_MVC_DAVH_AFPE.Controllers
             {
                 var newClient = new Models.ClientsModel
                 {
+                    Id = Singleton.Instance.ClientsList.Count,
                     Name = collection["Name"],
                     Lastname = collection["LastName"],
                     PhoneNumber = collection["PhoneNumber"],
@@ -64,11 +65,11 @@ namespace L0_MVC_DAVH_AFPE.Controllers
         // POST: StudentsController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(string Name, IFormCollection collection)
+        public ActionResult Edit(int id, IFormCollection collection)
         {
             try
             {
-                int index = Singleton.Instance.ClientsList.IndexOf(Singleton.Instance.ClientsList.Find(x => x.Name == Name));
+                int index = Singleton.Instance.ClientsList.IndexOf(Singleton.Instance.ClientsList.Find(x => x.Id == id));
                 var ClientEdited = new Models.ClientsModel
                 {
                     Name = collection["Name"],
