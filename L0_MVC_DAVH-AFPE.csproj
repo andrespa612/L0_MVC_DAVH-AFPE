@@ -6,6 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Students\**" />
+    <Content Remove="Views\Students\**" />
+    <EmbeddedResource Remove="Views\Students\**" />
+    <None Remove="Views\Students\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
   </ItemGroup>
 
