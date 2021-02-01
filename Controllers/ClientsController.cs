@@ -64,10 +64,11 @@ namespace L0_MVC_DAVH_AFPE.Controllers
         // POST: StudentsController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(string name, IFormCollection collection)
         {
             try
             {
+                
                 return RedirectToAction(nameof(Index));
             }
             catch
