@@ -7,11 +7,11 @@
 <h1>Index</h1>
 
 <p>
-    <button onclick="SortByName">Sort By Name</button> |
-    <button onclick="SortByLastName">Sort By Lastname</button> |
+    @Html.ActionLink("Sort by Name", "Index", new { sb = 1 }) |
+    @Html.ActionLink("Sort by Last Name", "Index", new { sb = 2 }) |
     <a asp-action="Create">Create New</a>
-
 </p>
+
 <table class="table">
     <thead>
         <tr>
@@ -48,7 +48,7 @@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { Name = item.Name }) |
                 @Html.ActionLink("Details", "Details", new { Name = item.Name }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Delete", "Delete", new { Name = item.Name })
             </td>
         </tr>
 }

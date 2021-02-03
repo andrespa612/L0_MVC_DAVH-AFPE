@@ -1,15 +1,16 @@
 ﻿@model L0_MVC_DAVH_AFPE.Models.ClientsModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Delete";
 }
 
-<h1>Details</h1>
+<h1>Delete</h1>
 
+<h3>Are you sure you want to delete this?</h3>
 <div>
     <h4>ClientsModel</h4>
     <hr />
-    <dl class="row">
+    <dl class="row">       
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Name)
         </dt>
@@ -35,8 +36,9 @@
             @Html.DisplayFor(model => model.Description)
         </dd>
     </dl>
-</div>
-<div>
-    @Html.ActionLink("Edit", "Edit", new { Name = Model.Name })
-    @Html.ActionLink("Back to list", "Index", new { })
+    
+    <form asp-action="Delete">
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        @Html.ActionLink("Back to list", "Index", new { })
+    </form>
 </div>
