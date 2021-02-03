@@ -1,13 +1,12 @@
 ﻿@model L0_MVC_DAVH_AFPE.Models.ClientsModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Details of the Client";
 }
 
-<h1>Details</h1>
+<h1>Details of the Client</h1>
 
 <div>
-    <h4>ClientsModel</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -37,6 +36,6 @@
     </dl>
 </div>
 <div>
-    @Html.ActionLink("Edit", "Edit", new { Id = Model.Id })
+    @Html.ActionLink("Edit", "Edit", new { Id = Model.Id }) |
     @Html.ActionLink("Back to list", "Index", new { })
 </div>

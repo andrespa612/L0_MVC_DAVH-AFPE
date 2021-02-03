@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<L0_MVC_DAVH_AFPE.Models.ClientsModel>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Clients List";
 }
 
-<h1>Index</h1>
+<h1>Clients List</h1>
 
 <p>
     @Html.ActionLink("Sort by Name", "Index", new { sb = 1 }) |
@@ -12,7 +12,7 @@
     <a asp-action="Create">Create New</a>
 </p>
 
-<table class="table">
+<table class="table table-striped table-hover">
     <thead>
         <tr>
             <th>
